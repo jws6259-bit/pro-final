@@ -18,9 +18,9 @@
                 <button class="nav-tab" onclick="showTab('info', this)">투자 정보</button>
                 <button class="nav-tab" onclick="showTab('report', this)">월보고서</button>
             </div>
-            <div style="font-weight:600; font-size:0.9rem; color:var(--primary-blue); display: flex; align-items: center; gap: 8px;">
-                <div style="width: 32px; height: 32px; background: var(--primary-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">AD</div>
-                Admin
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <span>Admin</span>
             </div>
         </div>
     </header>
@@ -37,96 +37,115 @@
                 </div>
                 <span class="logo-text">ArbiLab.</span>
             </div>
-            <h1 style="text-align:center; font-size:1.5rem; margin-bottom:8px;">Secure Sign In</h1>
-            <p style="text-align:center; color:var(--text-muted); margin-bottom:32px; font-size:0.9rem;">Enter your credentials to access your secure dashboard.</p>
-            <div class="input-group" style="margin-bottom:20px;">
-                <label style="display:block; font-size:0.75rem; font-weight:700; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase;">Work Email</label>
-                <input type="email" value="admin@arbilab.com" style="width:100%; padding:16px; border-radius:12px; border:1px solid var(--border-color); background:#f8fafc; outline:none;" readonly>
+            <h1 class="text-center mb-8" style="font-size:1.5rem;">Secure Sign In</h1>
+            <p class="text-center text-muted mb-32" style="font-size:0.9rem;">Enter your credentials to access your secure dashboard.</p>
+            <div class="input-group mb-16">
+                <label>Work Email</label>
+                <input type="email" value="admin@arbilab.com" readonly>
             </div>
-            <div class="input-group" style="margin-bottom:20px;">
-                <label style="display:block; font-size:0.75rem; font-weight:700; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase;">Password</label>
-                <input type="password" value="••••••••" style="width:100%; padding:16px; border-radius:12px; border:1px solid var(--border-color); background:#f8fafc; outline:none;" readonly>
+            <div class="input-group mb-16">
+                <label>Password</label>
+                <input type="password" value="••••••••" readonly>
             </div>
             <button type="button" class="btn-login" onclick="handleLogin()">Sign In to ArbiLab</button>
-            <div style="margin-top:32px; padding:16px; background:#f1f5f9; border-radius:14px; display:flex; gap:12px; align-items:center; font-size:0.8rem;">
-                <span>🔒</span><div><strong>2-Step Verification Active</strong><br>Protected by AES-256 Encryption</div>
+            <div class="login-footer-info">
+                <span>🔒</span>
+                <div>
+                    <div class="font-bold">2-Step Verification Active</div>
+                    <div class="text-muted" style="font-size: 0.7rem;">Protected by AES-256 Encryption</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- --- DASHBOARD PAGE (1:1 SYNC) --- -->
+    <!-- --- DASHBOARD PAGE --- -->
     <div id="dashboard-view" style="display:none; padding-top:var(--nav-height);">
         <main class="dashboard-main">
             <!-- TAB: STATUS -->
             <div id="tab-status" class="tab-content active">
                 <div class="stats-grid">
                     <div class="stat-card highlight">
-                        <span style="font-size:0.85rem; opacity:0.8; font-weight:600;">현재 총자산</span>
+                        <span class="stat-label" style="opacity:0.8;">현재 총자산</span>
                         <div class="stat-value large">₩318,400,000</div>
                     </div>
                     <div class="stat-card">
-                        <span style="font-size:0.85rem; color:var(--text-muted); font-weight:600;">누적 수익금</span>
+                        <span class="stat-label text-muted">누적 수익금</span>
                         <div class="stat-value" style="color:var(--up-color);">₩42,500,000</div>
                     </div>
                     <div class="stat-card">
-                        <span style="font-size:0.85rem; color:var(--text-muted); font-weight:600;">누적 수익률</span>
+                        <span class="stat-label text-muted">누적 수익률</span>
                         <div class="stat-value" style="color:var(--up-color);">+15.4%</div>
                     </div>
                     <div class="stat-card">
-                        <span style="font-size:0.85rem; color:var(--text-muted); font-weight:600;">연간 예상 수익률</span>
+                        <span class="stat-label text-muted">연간 예상 수익률</span>
                         <div class="stat-value">+18.2%</div>
                     </div>
                 </div>
 
                 <div class="secondary-grid">
                     <div class="info-card">
-                        <h3 style="font-size:1.1rem; margin-bottom:20px;">당월 실적</h3>
-                        <div class="info-row"><span>당월 시작 자산</span><strong>₩305,000,000</strong></div>
-                        <div class="info-row"><span>당월 예상 수익금</span><strong style="color:var(--up-color);">₩13,400,000</strong></div>
-                        <div class="info-row"><span>당월 예상 수익률</span><strong style="color:var(--up-color);">+4.39%</strong></div>
+                        <h3>당월 실적</h3>
+                        <div class="info-row"><span>당월 시작 자산</span><strong class="font-bold">₩305,000,000</strong></div>
+                        <div class="info-row"><span>당월 예상 수익금</span><strong class="font-bold" style="color:var(--up-color);">₩13,400,000</strong></div>
+                        <div class="info-row"><span>당월 예상 수익률</span><strong class="font-bold" style="color:var(--up-color);">+4.39%</strong></div>
                     </div>
                     <div class="info-card">
-                        <h3 style="font-size:1.1rem; margin-bottom:20px;">자산 진입 현황</h3>
-                        <div style="display:flex; justify-content:space-between; margin-top:20px; font-weight:700;"><span>전체 진입률</span><span>82.5%</span></div>
+                        <h3>자산 진입 현황</h3>
+                        <div class="flex justify-between items-center mt-32 font-bold">
+                            <span>전체 진입률</span>
+                            <span>82.5%</span>
+                        </div>
                         <div class="progress-bar"><div class="progress-fill" style="width:82.5%;"></div></div>
-                        <div style="display:flex; gap:40px; margin-top:20px;">
-                            <div><div style="font-size:0.8rem; color:var(--text-muted);">국내 진입률</div><strong>45.0%</strong></div>
-                            <div><div style="font-size:0.8rem; color:var(--text-muted);">해외 진입률</div><strong>37.5%</strong></div>
+                        <div class="flex gap-12 mt-32" style="flex-wrap: wrap;">
+                            <div><div class="text-muted" style="font-size:0.8rem;">국내 진입률</div><strong class="font-bold">45.0%</strong></div>
+                            <div style="margin-left: auto;"><div class="text-muted" style="font-size:0.8rem;">해외 진입률</div><strong class="font-bold">37.5%</strong></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="exchange-grid">
-                    <div class="exchange-card"><div class="card-header">🇰🇷 국내 거래소</div><div style="padding:24px;"><div class="info-row"><span>보유 원화 (KRW)</span><strong>₩12,450,000</strong></div><div class="info-row"><span>총 자산</span><strong>₩143,280,000</strong></div></div></div>
-                    <div class="exchange-card"><div class="card-header">🌐 해외 거래소</div><div style="padding:24px;"><div class="info-row"><span>보유 USDT</span><strong>$124,500</strong></div><div class="info-row"><span>총 자산 환산</span><strong>₩175,120,000</strong></div></div></div>
+                    <div class="exchange-card">
+                        <div class="card-header">🇰🇷 국내 거래소</div>
+                        <div class="p-24">
+                            <div class="info-row"><span>보유 원화 (KRW)</span><strong class="font-bold">₩12,450,000</strong></div>
+                            <div class="info-row"><span>총 자산</span><strong class="font-bold">₩143,280,000</strong></div>
+                        </div>
+                    </div>
+                    <div class="exchange-card">
+                        <div class="card-header">🌐 해외 거래소</div>
+                        <div class="p-24">
+                            <div class="info-row"><span>보유 USDT</span><strong class="font-bold">$124,500</strong></div>
+                            <div class="info-row"><span>총 자산 환산</span><strong class="font-bold">₩175,120,000</strong></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="hedging-section">
-                    <h3 style="font-size:1.25rem; font-weight:800;">Hedging Status <span style="font-size:0.85rem; color:var(--text-muted); font-weight:400; margin-left:8px;">(국내/해외 양방향 진입)</span></h3>
+                    <h3 class="font-black" style="font-size:1.25rem;">Hedging Status <span class="text-muted font-normal" style="font-size:0.85rem; margin-left:8px;">(국내/해외 양방향 진입)</span></h3>
                     <div class="table-wrapper">
                         <table class="hedging-table">
                             <thead><tr><th>코인명 / 진입일</th><th>국내 진입 (Domestic Long)</th><th class="link-col"></th><th>해외 진입 (Overseas Short)</th><th>상태</th></tr></thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>BTC</strong><br><small style="color:var(--text-muted);">2026-01-10</small></td>
-                                    <td><div class="pos-card"><span class="side-badge long">LONG</span><div class="info-row"><span>수량</span><strong>1.2 BTC</strong></div><div class="info-row"><span>평단</span><strong>₩85,000,000</strong></div><div class="info-row"><span>가치</span><strong>₩102,000,000</strong></div></div></td>
+                                    <td><strong class="font-bold">BTC</strong><br><small class="text-muted">2026-01-10</small></td>
+                                    <td><div class="pos-card"><span class="side-badge long">LONG</span><div class="info-row"><span>수량</span><strong class="font-bold">1.2 BTC</strong></div><div class="info-row"><span>평단</span><strong class="font-bold">₩85,000,000</strong></div><div class="info-row"><span>가치</span><strong class="font-bold">₩102,000,000</strong></div></div></td>
                                     <td class="link-col"><div class="hedge-link"><div class="link-dot"></div><div class="link-line"></div><div class="link-dot"></div></div></td>
-                                    <td><div class="pos-card"><span class="side-badge short">SHORT</span><div class="info-row"><span>수량</span><strong>1.2 BTC</strong></div><div class="info-row"><span>평단</span><strong>$62,500</strong></div><div class="info-row"><span>가치</span><strong>$75,000</strong></div></div></td>
+                                    <td><div class="pos-card"><span class="side-badge short">SHORT</span><div class="info-row"><span>수량</span><strong class="font-bold">1.2 BTC</strong></div><div class="info-row"><span>평단</span><strong class="font-bold">$62,500</strong></div><div class="info-row"><span>가치</span><strong class="font-bold">$75,000</strong></div></div></td>
                                     <td><span class="status-pill hedged">Hedged</span></td>
                                 </tr>
                                 <tr>
-                                    <td><strong>ETH</strong><br><small style="color:var(--text-muted);">2026-01-12</small></td>
-                                    <td><div class="pos-card"><span class="side-badge long">LONG</span><div class="info-row"><span>수량</span><strong>15.5 ETH</strong></div><div class="info-row"><span>가치</span><strong>₩53,475,000</strong></div></div></td>
+                                    <td><strong class="font-bold">ETH</strong><br><small class="text-muted">2026-01-12</small></td>
+                                    <td><div class="pos-card"><span class="side-badge long">LONG</span><div class="info-row"><span>수량</span><strong class="font-bold">15.5 ETH</strong></div><div class="info-row"><span>가치</span><strong class="font-bold">₩53,475,000</strong></div></div></td>
                                     <td class="link-col"><div class="hedge-link"><div class="link-dot"></div><div class="link-line"></div><div class="link-dot"></div></div></td>
-                                    <td><div class="pos-card"><span class="side-badge short">SHORT</span><div class="info-row"><span>수량</span><strong>15.5 ETH</strong></div><div class="info-row"><span>가치</span><strong>$39,525</strong></div></div></td>
+                                    <td><div class="pos-card"><span class="side-badge short">SHORT</span><div class="info-row"><span>수량</span><strong class="font-bold">15.5 ETH</strong></div><div class="info-row"><span>가치</span><strong class="font-bold">$39,525</strong></div></div></td>
                                     <td><span class="status-pill hedged">Hedged</span></td>
                                 </tr>
                                 <tr>
-                                    <td><strong>SOL</strong><br><small style="color:var(--text-muted);">2026-01-15</small></td>
-                                    <td><div class="pos-card"><span class="side-badge long">LONG</span><div class="info-row"><span>수량</span><strong>250 SOL</strong></div><div class="info-row"><span>가치</span><strong>₩42,000,000</strong></div></div></td>
+                                    <td><strong class="font-bold">SOL</strong><br><small class="text-muted">2026-01-15</small></td>
+                                    <td><div class="pos-card"><span class="side-badge long">LONG</span><div class="info-row"><span>수량</span><strong class="font-bold">250 SOL</strong></div><div class="info-row"><span>가치</span><strong class="font-bold">₩42,000,000</strong></div></div></td>
                                     <td class="link-col"><div class="hedge-link"><div class="link-dot"></div><div class="link-line"></div><div class="link-dot"></div></div></td>
-                                    <td><div class="pos-card"><span class="side-badge short">SHORT</span><div class="info-row"><span>수량</span><strong>250 SOL</strong></div><div class="info-row"><span>가치</span><strong>$31,125</strong></div></div></td>
-                                    <td><span class="status-pill partially-hedged" style="background:#FFF9E6; color:#D69E2E;">Partially Hedged</span></td>
+                                    <td><div class="pos-card"><span class="side-badge short">SHORT</span><div class="info-row"><span>수량</span><strong class="font-bold">250 SOL</strong></div><div class="info-row"><span>가치</span><strong class="font-bold">$31,125</strong></div></div></td>
+                                    <td><span class="status-pill" style="background:#FFF9E6; color:#D69E2E;">Partially Hedged</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -137,21 +156,23 @@
             <!-- TAB: INFO -->
             <div id="tab-info" class="tab-content">
                 <div class="info-hero">
-                    <div style="color:#2B6CB0; font-weight:800; font-size:0.75rem; letter-spacing:1px; margin-bottom:16px;">PREMIUM INVESTMENT PRODUCT</div>
-                    <h2 style="font-size:2.2rem; font-weight:800; margin-bottom:32px;">JWS 님의 투자 상품</h2>
-                    <div style="background:#F8FAFC; padding:40px; border-radius:24px; border:1px solid #f1f5f9; margin-bottom:48px;">
-                        <span style="color:var(--text-muted); font-size:0.95rem; font-weight:600;">기초 투자 자산</span>
-                        <div style="display:flex; align-items:baseline; gap:12px; margin-top:12px;">
-                            <span style="font-size:1.8rem; font-weight:600; color:var(--primary-blue);">₩</span>
-                            <span style="font-size:4rem; font-weight:800; color:var(--primary-blue);">340,000,000</span>
+                    <div style="color:var(--down-color); font-weight:800; font-size:0.75rem; letter-spacing:1px; margin-bottom:16px;">PREMIUM INVESTMENT PRODUCT</div>
+                    <h2 class="font-black mb-32" style="font-size: clamp(1.5rem, 5vw, 2.2rem);">JWS 님의 투자 상품</h2>
+                    
+                    <div class="investment-summary">
+                        <span class="text-muted font-bold" style="font-size:0.95rem;">기초 투자 자산</span>
+                        <div class="flex items-baseline gap-12 mt-8" style="flex-wrap: wrap;">
+                            <span class="font-bold" style="font-size:1.5rem; color:var(--primary-blue);">₩</span>
+                            <span class="font-black" style="font-size: clamp(2.5rem, 8vw, 4rem); color:var(--primary-blue);">340,000,000</span>
                         </div>
                     </div>
-                    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:32px;">
+
+                    <div class="detail-grid">
                         <div class="detail-item"><div class="detail-label">투자 유형</div><div class="detail-value">원화 수량 증가</div></div>
                         <div class="detail-item"><div class="detail-label">운영 시작일</div><div class="detail-value">2026-01-28</div></div>
                         <div class="detail-item"><div class="detail-label">투자 전략</div><div class="detail-value">현/선물 차익 거래</div></div>
                         <div class="detail-item"><div class="detail-label">운영 만기일</div><div class="detail-value">2999-12-30</div></div>
-                        <div class="detail-item"><div class="detail-label">수수료율</div><div class="detail-value" style="color:var(--down-color);">25 %</div></div>
+                        <div class="detail-item"><div class="detail-label">수수료율</div><div class="detail-value" style="color:var(--up-color);">25 %</div></div>
                         <div class="detail-item"><div class="detail-label">성과 보고일</div><div class="detail-value">매월 말일</div></div>
                     </div>
                 </div>
@@ -160,47 +181,50 @@
             <!-- TAB: REPORT -->
             <div id="tab-report" class="tab-content">
                 <div class="report-header">
-                    <div><h2 style="font-size:1.8rem;">2026년 01월 성과 보고서 <span style="font-size:1.2rem; opacity:0.3; margin-left:8px;">▾</span></h2><p style="color:var(--text-muted); margin-top:8px; font-weight:500;">운용기간: 2026년 01월 01일 ~ 2026년 01월 31일</p></div>
-                    <button style="padding:14px 28px; border-radius:14px; border:1px solid var(--border-color); background:#fff; font-weight:700; cursor:pointer; font-size:0.9rem; transition:0.2s;">PDF 다운로드</button>
+                    <div>
+                        <h2 class="font-bold" style="font-size:1.8rem;">2026년 01월 성과 보고서 <span style="opacity:0.3; margin-left:8px;">▾</span></h2>
+                        <p class="text-muted mt-8 font-bold">운용기간: 2026년 01월 01일 ~ 2026년 01월 31일</p>
+                    </div>
+                    <button style="padding:12px 24px; border-radius:12px; border:1px solid var(--border-color); background:#fff; font-weight:700; cursor:pointer; font-size:0.9rem; transition:0.2s;">PDF 다운로드</button>
                 </div>
+
                 <div class="report-summary">
                     <div class="stat-card">
-                        <span class="summary-label" style="font-size:0.95rem; font-weight:600; color:var(--text-muted); margin-bottom:12px; display:block;">당월 수익금 (수수료 포함)</span>
-                        <span class="summary-value" style="font-size:2.5rem; font-weight:800;">1,982,800 원</span>
+                        <span class="text-muted font-bold mb-8" style="display:block;">당월 수익금 (수수료 포함)</span>
+                        <span class="font-black" style="font-size: clamp(1.8rem, 5vw, 2.5rem);">1,982,800 원</span>
                     </div>
                     <div class="stat-card">
-                        <span class="summary-label" style="font-size:0.95rem; font-weight:600; color:var(--text-muted); margin-bottom:12px; display:block;">예상 연간 수익률</span>
-                        <span class="summary-value" style="font-size:2.5rem; font-weight:800; color:var(--down-color);">33.23 %</span>
+                        <span class="text-muted font-bold mb-8" style="display:block;">예상 연간 수익률</span>
+                        <span class="font-black" style="font-size: clamp(1.8rem, 5vw, 2.5rem); color:var(--up-color);">33.23 %</span>
                     </div>
                 </div>
-                <div class="report-panel" style="margin-top:40px;">
-                    <div style="padding:24px; background:#f8fafc; font-weight:800; border-bottom:1px solid var(--border-color); font-size:1.1rem;">이용 상세내역</div>
-                    <div style="display:grid; grid-template-columns:1fr 1fr; padding:40px; gap:64px;">
+
+                <div class="report-panel mt-32">
+                    <div class="report-panel-header">이용 상세내역</div>
+                    <div class="report-grid">
                         <div>
-                            <h4 style="margin-bottom:24px; font-size:1.15rem;">수수료 상세내역</h4>
-                            <div class="data-row"><span>수수료율</span><strong>25 %</strong></div>
-                            <div class="data-row"><span>월초 평가자산</span><strong>299,999,000 원</strong></div>
-                            <div class="data-row"><span>월말 평가자산</span><strong>301,981,800 원</strong></div>
-                            <div class="data-row"><span>발생 수수료</span><strong>495,000 원</strong></div>
-                            <div class="total-row" style="margin-top:32px; padding:28px; background:#f8fafc; border-radius:16px; display:flex; justify-content:space-between; align-items:center;">
-                                <span style="font-weight:600;">수수료 총액 (부가세 포함)</span><strong style="color:var(--primary-blue); font-size:1.5rem;">544,500 원</strong>
+                            <h4 class="mb-24" style="font-size:1.15rem;">수수료 상세내역</h4>
+                            <div class="data-row"><span>수수료율</span><strong class="font-bold">25 %</strong></div>
+                            <div class="data-row"><span>월초 평가자산</span><strong class="font-bold">299,999,000 원</strong></div>
+                            <div class="data-row"><span>월말 평가자산</span><strong class="font-bold">301,981,800 원</strong></div>
+                            <div class="data-row"><span>발생 수수료</span><strong class="font-bold">495,000 원</strong></div>
+                            <div class="total-row">
+                                <span class="font-bold">수수료 총액 (부가세 포함)</span>
+                                <strong class="font-black" style="color:var(--primary-blue); font-size:1.25rem;">544,500 원</strong>
                             </div>
                         </div>
                         <div>
-                            <h4 style="margin-bottom:24px; font-size:1.15rem;">순이익 및 납부 정보</h4>
-                            <div class="data-row"><span>당월 순이익</span><strong style="color:var(--up-color); font-size:1.1rem;">1,438,300 원</strong></div>
-                            <div class="data-row"><span>누적 순이익</span><strong style="color:var(--up-color); font-size:1.1rem;">1,438,300 원</strong></div>
-                            <div class="payment-box" style="background:#f9fafb; border-radius:24px; padding:32px; border:1px solid #edf2f7; margin-top:32px;">
-                                <div class="data-row" style="border:none; padding:8px 0;"><span>은행</span><strong>우리은행</strong></div>
-                                <div class="data-row" style="border:none; padding:8px 0;"><span>계좌번호</span><strong>1002-123-456789 <button class="copy-btn" style="margin-left:8px;">복사</button></strong></div>
-                                <div class="data-row" style="border:none; padding:8px 0;"><span>예금주</span><strong>주식회사 아비랩</strong></div>
-                                <div class="data-row" style="border:none; padding:16px 0 0 0; color:var(--up-color); font-weight:700; border-top:1px dashed var(--border-color); margin-top:8px;"><span>납기일</span><strong>2026-02-07</strong></div>
+                            <h4 class="mb-24" style="font-size:1.15rem;">순이익 및 납부 정보</h4>
+                            <div class="data-row"><span>당월 순이익</span><strong class="font-bold" style="color:var(--up-color);">1,438,300 원</strong></div>
+                            <div class="data-row"><span>누적 순이익</span><strong class="font-bold" style="color:var(--up-color);">1,438,300 원</strong></div>
+                            <div class="payment-box">
+                                <div class="data-row" style="border:none; padding:8px 0;"><span>은행</span><strong class="font-bold">우리은행</strong></div>
+                                <div class="data-row" style="border:none; padding:8px 0;"><span>계좌번호</span><strong class="font-bold">1002-123-456789 <button class="copy-btn">복사</button></strong></div>
+                                <div class="data-row" style="border:none; padding:8px 0;"><span>예금주</span><strong class="font-bold">주식회사 아비랩</strong></div>
+                                <div class="data-row" style="border:none; padding:16px 0 0 0; color:var(--up-color); font-weight:700; border-top:1px dashed var(--border-color); margin-top:16px;"><span>납기일</span><strong class="font-bold">2026-02-07</strong></div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </main>
     </div>
 
     <script src="script.js"></script>
