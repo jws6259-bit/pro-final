@@ -3,17 +3,12 @@
  */
 
 // --- NAVIGATION & VIEW ELEMENTS ---
-const landingView = document.getElementById('landing-view');
 const loginPage = document.getElementById('login-page');
 const dashboardView = document.getElementById('dashboard-view');
 const mainHeader = document.getElementById('main-header');
 
 // --- VIEW CONTROLS ---
-function openLogin() {
-    landingView.style.display = 'none';
-    loginPage.style.display = 'flex';
-    window.scrollTo(0,0);
-}
+
 
 function handleLogin() {
     const btn = document.querySelector('.btn-login');
