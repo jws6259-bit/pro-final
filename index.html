@@ -13,14 +13,23 @@
     <header id="main-header" style="display:none;">
         <div class="nav-container">
             <div class="nav-brand" onclick="location.reload()">🛡️ ArbiLab.</div>
-            <div class="nav-tabs">
+            
+            <div id="nav-menu" class="nav-tabs">
                 <button class="nav-tab active" onclick="showTab('status', this)">자산현황</button>
                 <button class="nav-tab" onclick="showTab('info', this)">투자 정보</button>
                 <button class="nav-tab" onclick="showTab('report', this)">월보고서</button>
             </div>
-            <div class="user-profile">
-                <div class="avatar">AD</div>
-                <span>Admin</span>
+
+            <div class="nav-actions">
+                <div class="user-profile">
+                    <div class="avatar">AD</div>
+                    <span>Admin</span>
+                </div>
+                <button class="hamburger-btn" onclick="toggleMenu()" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>

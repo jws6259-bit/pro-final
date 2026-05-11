@@ -9,6 +9,12 @@ const mainHeader = document.getElementById('main-header');
 
 // --- VIEW CONTROLS ---
 
+function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    const btn = document.querySelector('.hamburger-btn');
+    menu.classList.toggle('active');
+    btn.classList.toggle('active');
+}
 
 function handleLogin() {
     const btn = document.querySelector('.btn-login');
@@ -35,7 +41,15 @@ function showTab(tabId, el) {
     document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
     el.classList.add('active');
     
-    // 3. UX
+    // 3. Mobile menu close
+    const menu = document.getElementById('nav-menu');
+    const btn = document.querySelector('.hamburger-btn');
+    if (menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        btn.classList.remove('active');
+    }
+    
+    // 4. UX
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
